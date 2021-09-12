@@ -1,54 +1,55 @@
+using System;
+
 namespace Series.Classes
 {
-      public class Serie: EntidadeBase
+    public class Serie : EntidadeBase
     {
-
-    private Genero Genero { get; set; }
-
-    private string Titulo { get;  set; }
- 
-    private string Descricao { get;  set; }
-
-    private int Ano { get;  set; }
-
+        // Atributos
+        private Genero Genero { get; set; }
+        private string Titulo { get; set; }
+        private string Descricao { get; set; }
+        private int Ano { get; set; }
+        private bool Excluido { get; set; }
 
         // Métodos
-		public Serie(int id, Genero genero, string titulo, string descricao, int ano)
-		{
-			this.Id = id;
-			this.Genero = genero;
-			this.Titulo = titulo;
-			this.Descricao = descricao;
-			this.Ano = ano;
-            this.Excluido = false;
-		}
+        public Serie(int id, Genero genero, string titulo, string descricao, int ano)
+        {
+            Id = id;
+            Genero = genero;
+            Titulo = titulo;
+            Descricao = descricao;
+            Ano = ano;
+            Excluido = false;
+        }
 
         public override string ToString()
-		{
-			// Environment.NewLine https://docs.microsoft.com/en-us/dotnet/api/system.environment.newline?view=netcore-3.1
+        {
+            // Environment.NewLine https://docs.microsoft.com/en-us/dotnet/api/system.environment.newline?view=netcore-3.1
             string retorno = "";
-            retorno += "Gênero: " + this.Genero + Environment.NewLine;
-            retorno += "Titulo: " + this.Titulo + Environment.NewLine;
-            retorno += "Descrição: " + this.Descricao + Environment.NewLine;
-            retorno += "Ano de Início: " + this.Ano + Environment.NewLine;
-            retorno += "Excluido: " + this.Excluido;
-			return retorno;
-		}
-
-     public string retornaTitulo()
-		{
-			return this.Titulo;
-		}
-
-		public int retornaId()
-		{
-			return this.Id;
-		}
-        public bool retornaExcluido()
-		{
-			return this.Excluido;
-		}
-        public void Excluir() {
-            this.Excluido = true;
+            retorno += "Gênero: " + Genero + Environment.NewLine;
+            retorno += "Titulo: " + Titulo + Environment.NewLine;
+            retorno += "Descrição: " + Descricao + Environment.NewLine;
+            retorno += "Ano de Início: " + Ano + Environment.NewLine;
+            retorno += "Excluido: " + Excluido;
+            return retorno;
         }
+
+        public string retornaTitulo()
+        {
+            return Titulo;
+        }
+
+        public int retornaId()
+        {
+            return Id;
+        }
+        public bool retornaExcluido()
+        {
+            return Excluido;
+        }
+        public void Excluir()
+        {
+            Excluido = true;
+        }
+    }
 }
